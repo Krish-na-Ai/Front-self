@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Color Variables */
+  --color-primary: #3B82F6;
+  --color-primary-hover: #2563EB;
+  --color-text: #111827;
+  --color-background: #F9FAFB;
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  
+  /* Typography */
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+  
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  
+  /* Transitions */
+  --transition-hover: 150ms ease-in-out;
+  --transition-state: 300ms ease-in-out;
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    font-family: var(--font-ui);
+    color: var(--color-text);
+    background-color: var(--color-background);
+  }
+  
+  body {
+    @apply text-base antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+  
+  code, pre {
+    font-family: var(--font-code);
+  }
+  
+  a {
+    @apply transition-colors;
+    transition-duration: var(--transition-hover);
+  }
+  
+  button {
+    @apply transition-all;
+    transition-duration: var(--transition-hover);
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .container-padding {
+    @apply px-4 sm:px-6;
+  }
+  
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Animation Utilities */
+.animate-fade {
+  @apply transition-opacity duration-300;
+}
+
+.animate-scale {
+  @apply transition-transform duration-300;
+}
+
+/* Layout Utilities */
+.max-content-width {
+  @apply max-w-7xl mx-auto;
+}
+
+/* Link Styles */
+.link {
+  @apply text-primary hover:text-primary-hover underline;
+}
+
+.link-nav {
+  @apply text-gray-600 hover:text-gray-900 no-underline;
+}
+
+/* Media Queries for responsive design are handled by Tailwind's built-in breakpoints */
